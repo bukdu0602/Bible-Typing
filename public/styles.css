@@ -2,13 +2,9 @@
 
 body {
   background-color: #e6c4c0 !important;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Roboto Condensed', sans-serif !important;
 }
 
-.heading {
-  background-color: #ca8a8b;
-}
-
-.Tbible {
-
+#signinform {
+  margin: 100px 500px;
 }
