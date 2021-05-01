@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require("body-parser");
 
 const app = express();
+// 파일 경로 퍼블릭으로 변경하기
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
