@@ -3,8 +3,30 @@
 body {
   background-color: #e6c4c0 !important;
   font-family: 'Roboto Condensed', sans-serif !important;
+  width: 50%: !important;
+  color: #926e6f !important;
 }
 
 #signinform {
-  margin: 100px 500px;
+  margin: 100px 120px;
+}
+
+.abc {
+  width: 60%;
+  margin: auto;
+  color:#926e6f;
+}
+
+.bibleImage {
+  width: 100%;
+  object-fit: fill;
+  margin-top: 10px;
+}
+
+.bingle {
+  margin-top: 30px;
+}
+
+img {
+  border-radius: 50%;
 }
