@@ -1,16 +1,35 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+const request = require("request");
+const bible = require("./bible");
 
 const app = express();
-// 파일 경로 퍼블릭으로 변경하기
-app.use(express.static(__dirname + '/public'));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine", "ejs");
 
-app.get('/', (req, res) => {
-res.sendfile(__dirname + "\\public\\index.html")
+// console.log(bible.hello())
+// 파일 경로 퍼블릭으로 변경하기
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "\\index.html")
 })
+
+app.get("/index", (req, res) => {
+  res.sendFile(__dirname + "\\index.html")
+})
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + "\\login.html")
+})
+app.get("/signup", (req, res) => {
+  res.sendFile(__dirname + "\\signup.html")
+})
+app.get("/chapters", (req, res) => {
+  res.sendFile(__dirname + "\\chapters.html")
+})
+app.get("/type", (req, res) => {
+  res.sendFile(__dirname + "\\type.html")
+})
+
 
 app.listen(3000, () => {
   console.log("port started on 3000")

@@ -28,5 +28,13 @@ body {
 }
 
 img {
-  border-radius: 50%;
+}
+
+#startTyping {
+  font-size: 50px;
+  position: absolute;
+  top:200px;
+  margin-top: 550px;
+  
+  color: #926e6f;
 }
