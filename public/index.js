@@ -1,1 +1,3 @@
-alert("working");
+
+
+// document.querySelector("#startTyping").innerHTML = "hihihi"
