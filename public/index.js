@@ -2498,10 +2498,18 @@ document.querySelector(".verse3").innerHTML = genesis[i + 2].slice(0, 3)
 };
 };
 
-document.querySelector(".bibleTyping").addEventListener("keypress", function(event){
-  merong(event.value)
-});
-
-function merong(key){
-  document.querySelector(".hi123").innerHTML = key
+function valuePass(){
+ let value = document.querySelector('.bibleTyping').value
+document.querySelector(".hi123").innerHTML = value
 }
+
+
+// document.querySelector(".bibleTyping").addEventListener("keypress", function(event){
+//   merong(event.value)
+// });
+
+// function merong(key){
+//   document.querySelector(".hi123").innerHTML = key
+// }
+//
+// function ccc111(value)
