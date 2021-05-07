@@ -1,3 +1,4 @@
+// const { PerformanceObserver, performance } = require('perf_hooks');
 const sgenesis = `The First Book of Moses: Called Genesis
 
 1:1 In the beginning God created the heaven and the earth.
@@ -2433,83 +2434,110 @@ And he brought them near unto him; and he kissed them, and embraced them.
 50:21 Now therefore fear ye not: I will nourish you, and your little ones.`
 
 const genesis = [];
-
-function bibleGenesis(){
-let i = 1
-let j = 1
-while (i < 200){
-
-  while (j < 500){
+let i = 1;
+let j = 1;
+let k = 0;
+let timeNow = []
+// Put bible in array---------------------------------
+while (i < 200) {
+  while (j < 500) {
     let firstIndex = sgenesis.indexOf(i + ":" + j + " ");
-    let lastIndex = sgenesis.indexOf(i + ":" + (j + + "1") + " " )
+    let lastIndex = sgenesis.indexOf(i + ":" + (j + +"1") + " ")
     let verse = sgenesis.slice(firstIndex, lastIndex)
-    if (verse.length > 500 ){
-      lastIndex = sgenesis.indexOf(i + 1 + ":1 " )
+    if (verse.length > 500) {
+      lastIndex = sgenesis.indexOf(i + 1 + ":1 ")
       verse = sgenesis.slice(firstIndex, lastIndex)
       genesis.push(verse)
       break;
     }
     genesis.push(verse)
     j++
-    if (verse === ""){
-        break
-    };};
-    i++;
-    j = 1
+    if (verse === "") {
+      break
+    };
+  };
+  i++;
+  j = 1
+};
+
+function raiseValue() {
+  k += 1
+  showBible()
+}
+
+// show verse on the page from array---------------------
+function showBible() {
+  if (k === 0) {
+    document.querySelector(".original1").innerHTML = genesis[k].slice(0, genesis[k].length)
+    document.querySelector(".original2").innerHTML = genesis[k + 1].slice(0, genesis[k + 1].length)
+    document.querySelector(".original3").innerHTML = genesis[k + 2].slice(0, genesis[k + 2].length)
+    document.querySelector(".original1").style.color = "black"
+    typeThis0()
+  } else {
+    document.querySelector(".original1").innerHTML = genesis[k - 1].slice(0, genesis[k - 1].length)
+    document.querySelector(".original2").innerHTML = genesis[k].slice(0, genesis[k].length)
+    document.querySelector(".original3").innerHTML = genesis[k + 1].slice(0, genesis[k + 1].length)
+    typeThisOthers()
   }
-return genesis
 };
 
-let i = 0;
+function typeThis0(){
+  document.querySelector(".original1").style.color = "black"
+}
+function typeThisOthers(){
+  document.querySelector(".original2").style.color = "black"
+}
+showBible()
 
-function nextLine(){
 
-document.querySelector(".original1").innerHTML = genesis[i].slice(3, genesis[i].length)
-document.querySelector(".original2").innerHTML = genesis[i + 1].slice(3, genesis[i + 1].length)
-document.querySelector(".original3").innerHTML = genesis[i + 2].slice(3, genesis[i + 2].length)
-document.querySelector(".verse1").innerHTML = genesis[i].slice(0, 3)
-document.querySelector(".verse2").innerHTML = genesis[i + 1].slice(0, 3)
-document.querySelector(".verse3").innerHTML = genesis[i + 2].slice(0, 3)
+function valuePass() {
 
-};
+  let value = document.querySelector('.bibleTyping').value
 
-bibleGenesis()
-nextLine()
 
-document.querySelector(".buttonClicked").addEventListener("click", handleClick);
-
-function handleClick() {
-i += 3
-
-if (i < 9){
-  document.querySelector(".original1").innerHTML = genesis[i].slice(3, genesis[i].length)
-  document.querySelector(".original2").innerHTML = genesis[i + 1].slice(3, genesis[i + 1].length)
-  document.querySelector(".original3").innerHTML = genesis[i + 2].slice(3, genesis[i + 2].length)
-document.querySelector(".verse1").innerHTML = genesis[i].slice(0, 3)
-document.querySelector(".verse2").innerHTML = genesis[i + 1].slice(0, 3)
-document.querySelector(".verse3").innerHTML = genesis[i + 2].slice(0, 3)
-} else {
-  document.querySelector(".original1").innerHTML = genesis[i].slice(4, genesis[i].length)
-  document.querySelector(".original2").innerHTML = genesis[i + 1].slice(4, genesis[i + 1].length)
-  document.querySelector(".original3").innerHTML = genesis[i + 2].slice(4, genesis[i + 2].length)
-  document.querySelector(".verse1").innerHTML = genesis[i].slice(0, 4)
-  document.querySelector(".verse2").innerHTML = genesis[i + 1].slice(0, 4)
-  document.querySelector(".verse3").innerHTML = genesis[i + 2].slice(0, 4)
-};
-};
-
-function valuePass(){
- let value = document.querySelector('.bibleTyping').value
-document.querySelector(".hi123").innerHTML = value
+  checkLetter(value)
 }
 
 
-// document.querySelector(".bibleTyping").addEventListener("keypress", function(event){
-//   merong(event.value)
-// });
+function checkLetter(value) {
+  let d = new Date();
+  timeNow.push(d.getTime())
+let averageSpeed = ""
 
-// function merong(key){
-//   document.querySelector(".hi123").innerHTML = key
-// }
-//
-// function ccc111(value)
+  if (k === 0) {
+    if (value === genesis[k].slice(0, value.length)) {
+      document.querySelector(".typeSpeed").innerHTML = parseInt(value.length / ((timeNow[timeNow.length-1] - timeNow[0])/60000));
+      document.querySelector(".original1").innerHTML = value
+      document.querySelector(".original1").style.color = "#1cc5dc"
+      document.querySelector(".restWord1").innerHTML = genesis[k].slice(value.length, genesis[k].length)
+      document.querySelector(".restWord1").style.color = "black"
+      document.querySelector(".hey123").innerHTML = "good"
+      if (value.length + 2 === genesis[k].length) {
+        timeNow = []
+        document.querySelector('.bibleTyping').value = ""
+        document.querySelector(".original1").style.color = "#926e6f"
+        raiseValue()
+      }
+    } else {
+      document.querySelector(".hey123").innerHTML = "bad"
+    }
+  } else {
+    if (value === genesis[k].slice(0, value.length)) {
+      document.querySelector(".typeSpeed").innerHTML = parseInt(value.length / ((timeNow[timeNow.length-1] - timeNow[0])/60000));
+      document.querySelector(".original2").innerHTML = value
+      document.querySelector(".original2").style.color = "#1cc5dc"
+      document.querySelector(".restWord2").innerHTML = genesis[k].slice(value.length, genesis[k].length)
+      document.querySelector(".restWord2").style.color = "black"
+      document.querySelector(".hey123").innerHTML = "good"
+      if (value.length + 2 === genesis[k].length) {
+        timeNow = []
+        document.querySelector('.bibleTyping').value = ""
+        document.querySelector(".original2").style.color = "#926e6f"
+        raiseValue()
+      }
+
+    } else {
+      document.querySelector(".hey123").innerHTML = "bad"
+    }
+  }
+}

@@ -33,28 +33,29 @@
 
     <!-- typing.................................. -->
     <div class="row">
-        <h1 class="book123"> Genesis</h1>
+      <h1 class="book123"> Genesis</h1>
 
-        <p> <span class="verse1 verse">verse</span> <span class="original1"></span> </p>
-        <p> <span class="verse2 verse">verse</span> <span class="original2"></span> </p>
-        <p> <span class="verse3 verse">verse</span> <span class="original3"></span> </p>
+      <p> <span class="bb original1"></span><span class="bb restWord1"></span> </p>
+      <p> <span class="bb original2"></span><span class="bb restWord2"></span> </p>
+      <p> <span class="bb original3"></span> </p>
 
-          <div class="input-group">
-            <span class="input-group-text">Type:</span>
-            <textarea id="qwe1" class="form-control bibleTyping" onkeypress="valuePass()" aria-label="With textarea" rows="4" cols="50"></textarea>
-          </div>
-  </textarea>
-  <div class="">
-    <button class="buttonClicked" type="text" name="button" >Next</button>
+      <div class="input-group">
+        <span class="input-group-text guide">Type:</span>
+        <textarea id="qwe1" class="form-control bibleTyping" onkeyup="valuePass()" aria-label="With textarea" rows="4" cols="50"></textarea>
+      </div>
+      </textarea>
+      <div class="">
+        <button onclick="raiseValue()" type="text" name="button">Next</button>
 
-  </div>
-        <form class="" action="index.html" method="post">
-          <button type="button" name="button">Save</button>
-        </form>
+      </div>
+      <form class="" action="index.html" method="post">
+        <button type="button" name="button">Save</button>
+      </form>
     </div>
 
 
-<h1 class="hi123">12345</h1>
+    <h1 class="hey123">Good, or Bad</h1>
+    <h1>Your Type Speed is: <span class="typeSpeed"></span> </h1>
   </div>
   <script src="index.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

@@ -1,5 +1,3 @@
-
-
 body {
   background-color: #e6c4c0 !important;
   font-family: 'Roboto Condensed', sans-serif !important;
@@ -13,7 +11,7 @@ body {
 .abc {
   width: 60%;
   margin: auto;
-  color:#926e6f;
+  color: #926e6f;
 }
 
 .bibleImage {
@@ -26,25 +24,22 @@ body {
   margin-top: 30px;
 }
 
-
 #startTyping {
   font-size: 50px;
   position: absolute;
-  top:200px;
+  top: 200px;
   margin-top: 550px;
-
   color: #926e6f;
 }
-
 
 .book123 {
   display: inline-block;
 }
-.chapterVerse {
-  display: inline-block;
-}
 
-.verse{
-  background-color: #ca8a8b;
-  color: black;
+
+
+
+
+.bb {
+  font-size: 25px;
 }

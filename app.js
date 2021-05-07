@@ -5,7 +5,9 @@ const bible = require("./bible");
 
 const app = express();
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // console.log(bible.hello())
 // 파일 경로 퍼블릭으로 변경하기
