@@ -2438,6 +2438,8 @@ let i = 1;
 let j = 1;
 let k = 0;
 let timeNow = []
+let speedPerVerse = []
+
 // Put bible in array---------------------------------
 while (i < 200) {
   while (j < 500) {
@@ -2502,17 +2504,20 @@ function valuePass() {
 function checkLetter(value) {
   let d = new Date();
   timeNow.push(d.getTime())
-let averageSpeed = ""
-
+  let tpSpeed = parseInt(value.length / ((timeNow[timeNow.length-1] - timeNow[0])/60000));
   if (k === 0) {
     if (value === genesis[k].slice(0, value.length)) {
-      document.querySelector(".typeSpeed").innerHTML = parseInt(value.length / ((timeNow[timeNow.length-1] - timeNow[0])/60000));
+
+      document.querySelector(".typeSpeed").innerHTML = tpSpeed
       document.querySelector(".original1").innerHTML = value
       document.querySelector(".original1").style.color = "#1cc5dc"
       document.querySelector(".restWord1").innerHTML = genesis[k].slice(value.length, genesis[k].length)
       document.querySelector(".restWord1").style.color = "black"
       document.querySelector(".hey123").innerHTML = "good"
       if (value.length + 2 === genesis[k].length) {
+
+        document.querySelector(".avgSpeed").innerHTML = avgTpSpeed()
+        speedPerVerse.push(tpSpeed)
         timeNow = []
         document.querySelector('.bibleTyping').value = ""
         document.querySelector(".original1").style.color = "#926e6f"
@@ -2523,13 +2528,15 @@ let averageSpeed = ""
     }
   } else {
     if (value === genesis[k].slice(0, value.length)) {
-      document.querySelector(".typeSpeed").innerHTML = parseInt(value.length / ((timeNow[timeNow.length-1] - timeNow[0])/60000));
+      document.querySelector(".typeSpeed").innerHTML = tpSpeed
       document.querySelector(".original2").innerHTML = value
       document.querySelector(".original2").style.color = "#1cc5dc"
       document.querySelector(".restWord2").innerHTML = genesis[k].slice(value.length, genesis[k].length)
       document.querySelector(".restWord2").style.color = "black"
       document.querySelector(".hey123").innerHTML = "good"
       if (value.length + 2 === genesis[k].length) {
+        speedPerVerse.push(tpSpeed)
+        document.querySelector(".avgSpeed").innerHTML = avgTpSpeed()
         timeNow = []
         document.querySelector('.bibleTyping').value = ""
         document.querySelector(".original2").style.color = "#926e6f"
@@ -2540,4 +2547,10 @@ let averageSpeed = ""
       document.querySelector(".hey123").innerHTML = "bad"
     }
   }
+}
+
+function avgTpSpeed(){
+let sum = 0
+  speedPerVerse.forEach(e => sum = sum + e)
+  return sum / speedPerVerse.length
 }
