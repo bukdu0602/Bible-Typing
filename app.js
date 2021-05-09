@@ -31,6 +31,15 @@ app.get("/chapters", (req, res) => {
 app.get("/type", (req, res) => {
   res.sendFile(__dirname + "\\type.html")
 })
+// Post Post Post------------------------------------
+
+app.post("/", (req, res) => {
+  res.send("thanks for posting " + req.body.chapterName + " " + req.body.verseNumber)
+  console.log(req.body.chapterName)
+  console.log(req.body.verseNumber)
+  // res.redirect("/")
+})
+
 
 
 app.listen(3000, () => {

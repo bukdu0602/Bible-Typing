@@ -16,7 +16,6 @@ body {
 
 .bibleImage {
   width: 100%;
-  object-fit: fill;
   margin-top: 10px;
 }
 
@@ -24,10 +23,10 @@ body {
   margin-top: 30px;
 }
 
-#startTyping {
+.startTyping {
   font-size: 50px;
-  position: absolute;
-  top: 200px;
+  position: relative;
+  top: 50px;
   margin-top: 550px;
   color: #926e6f;
 }
@@ -35,10 +34,6 @@ body {
 .book123 {
   display: inline-block;
 }
-
-
-
-
 
 .bb {
   font-size: 25px;
