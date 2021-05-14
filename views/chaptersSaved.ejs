@@ -34,8 +34,8 @@
 
 
     <h1>Chapters</h1>
-    <p>Please sign in if you want to start from last saved point. </p>
-
+    <p>Thank you for sign in. Please click a button below to start from your last saved point.</p>
+<button type="button" onclick="<%=chaptersSaved%>(<%=verseSaved%>)" name="button">Last Saved Point</button>
     <table>
       <tr>
         <th>Old Testament.</th>
@@ -65,6 +65,7 @@
       </div>
       <form class="" action="/" method="post">
         <input class="savingInput" type="hidden"  name="verseNumber" value="1234">
+        <button class="saving" type="submit" name="chapterName" value="" onclick="save()">Save</button>
       </form>
 
 

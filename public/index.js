@@ -4027,17 +4027,20 @@ function reset() {
 
 }
 
-function genesis() {
+
+function Genesis(verseSaved) {
   reset()
   chapter = sgenesis;
   nameOfBook = "Genesis";
+  k = verseSaved
   start();
 }
 
-function matthew() {
+function Matthew(verseSaved) {
   reset()
   chapter = smatthew;
   nameOfBook = "Matthew";
+  k = verseSaved
   start();
 
 }
