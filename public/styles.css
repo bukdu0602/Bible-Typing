@@ -1,22 +1,24 @@
 body {
-  background-color: #e6c4c0 !important;
+  background-color: #e3fdfd !important;
   font-family: 'Roboto Condensed', sans-serif !important;
-  color: #926e6f !important;
+  color: #393e46 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  width: 60%!important;
+  margin: auto!important;
 }
 
-#signinform {
-  margin: 100px 120px;
+.navbar {
+  background-color: #cbf1f5;
 }
 
-.abc {
-  width: 60%;
-  margin: auto;
-  color: #926e6f;
+.signinform {
+  margin: 10% 30%;
 }
 
 .bibleImage {
-  width: 100%;
-  margin-top: 10px;
+  width: 30%;
 }
 
 .bingle {
@@ -28,7 +30,7 @@ body {
   position: relative;
   top: 50px;
   margin-top: 550px;
-  color: #926e6f;
+  color: #393e46;
 }
 
 .book123 {
@@ -37,4 +39,21 @@ body {
 
 .bb {
   font-size: 25px;
+}
+
+.footer {
+  position: absolute;
+  height: 10%;
+  width: 60%;
+  bottom: 0;
+  background-color: #cbf1f5;
+  text-align: center;
+}
+
+.social {
+  width: 3%;
+}
+
+.signButton{
+  background-color:#71c9ce !important;
 }

@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const request = require("request");
-const bible = require("./bible");
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
@@ -57,19 +56,71 @@ passport.deserializeUser(function(id, done) {
 let userEmail = ""
 
 
+// Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get
+
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "\\index.html")
+  res.render("index")
 });
 
-app.get("/index", (req, res) => {
-  res.sendFile(__dirname + "\\index.html")
-});
 
 
 app.get("/login", (req, res) => {
-  res.sendFile(__dirname + "\\login.html")
+  res.render("login")
 });
 
+
+app.get("/signup", (req, res) => {
+  res.render("signup")
+});
+
+
+app.get("/logout", (req, res) => {
+req.logout();
+res.redirect("/");
+});
+
+
+
+
+
+
+
+app.get("/chapters", (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({ username: userEmail }, function (err, user) {
+      if (err){
+        console.log(err)
+      } else {
+        res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse})
+      }
+    });
+  } else {
+    res.render("chapters")
+  }
+});
+
+
+
+// Post Post Post------------------------------------
+
+app.post("/", (req, res) => {
+User.updateOne({username: userEmail}, {chapter: req.body.chapterName}, function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("successfully uploaded")
+  }
+})
+User.updateOne({username: userEmail}, {verse: req.body.verseNumber}, function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("successfully uploaded")
+  }
+})
+res.send("Saved!!!")
+});
 
 
 app.post("/login", (req, res) => {
@@ -98,15 +149,6 @@ userEmail = req.body.username;
 });
 });
 
-app.get("/logout", (req, res) => {
-req.logout();
-res.redirect("/");
-});
-
-
-app.get("/signup", (req, res) => {
-  res.sendFile(__dirname + "\\signup.html")
-});
 
 app.post("/signup", (req, res) => {
   if(req.body.password === req.body.cfPassword){
@@ -127,55 +169,10 @@ app.post("/signup", (req, res) => {
       });
     }
   });
-};
+} else {
+  res.send("password does not match")
+}
 });
-
-
-app.get("/chapters", (req, res) => {
-  if (req.isAuthenticated()) {
-    User.findOne({ username: userEmail }, function (err, user) {
-      if (err){
-        console.log(err)
-      } else {
-        res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse})
-      }
-    });
-  } else {
-    res.sendFile(__dirname + "\\chapters.html")
-  }
-});
-
-app.get("/type", (req, res) => {
-  res.sendFile(__dirname + "\\type.html")
-});
-// Post Post Post------------------------------------
-
-app.post("/", (req, res) => {
-User.updateOne({username: userEmail}, {chapter: req.body.chapterName}, function(err){
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("successfully uploaded")
-  }
-})
-User.updateOne({username: userEmail}, {verse: req.body.verseNumber}, function(err){
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("successfully uploaded")
-  }
-})
-res.send("Saved!!!")
-});
-
-// User.find(function(err, bibles){
-//   if (err) {
-//     console.log(err)
-//   } else {
-//     console.log(User[0].chapter);
-//   }
-// })
-
 
 
 app.listen(3000, () => {
