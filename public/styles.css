@@ -42,6 +42,8 @@ body {
 }
 
 .footer {
+  color: grey;
+  margin: auto;
   position: absolute;
   height: 10%;
   width: 60%;
