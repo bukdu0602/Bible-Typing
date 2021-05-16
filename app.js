@@ -119,7 +119,7 @@ User.updateOne({username: userEmail}, {verse: req.body.verseNumber}, function(er
     console.log("successfully uploaded")
   }
 })
-res.send("Saved!!!")
+res.render("Saved")
 });
 
 
