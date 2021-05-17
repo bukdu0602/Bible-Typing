@@ -55,36 +55,35 @@ passport.deserializeUser(function(id, done) {
 
 let userEmail = ""
 
-
 // Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get
 
-
 app.get("/", (req, res) => {
-  res.render("index")
+  if (req.isAuthenticated()) {
+    User.findOne({ username: userEmail }, function (err, user) {
+      if (err){
+        console.log(err)
+      } else {
+        // res.render("header", {aaa: "", bbb: ""})
+        res.render("index", {userName: "welcome " + user.name})
+      }
+    });
+  } else {
+    res.render("index", {userName: ""})
+  }
 });
-
-
 
 app.get("/login", (req, res) => {
   res.render("login")
 });
 
-
 app.get("/signup", (req, res) => {
   res.render("signup")
 });
-
 
 app.get("/logout", (req, res) => {
 req.logout();
 res.redirect("/");
 });
-
-
-
-
-
-
 
 app.get("/chapters", (req, res) => {
   if (req.isAuthenticated()) {
@@ -92,15 +91,14 @@ app.get("/chapters", (req, res) => {
       if (err){
         console.log(err)
       } else {
-        res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse})
+        // res.render("header", {aaa: "", bbb: ""})
+        res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse, userName: "welcome " + user.name})
       }
     });
   } else {
     res.render("chapters")
   }
 });
-
-
 
 // Post Post Post------------------------------------
 
@@ -140,7 +138,7 @@ userEmail = req.body.username;
           if (err){
             console.log(err)
           } else {
-            res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse})
+            res.render("chaptersSaved", {chaptersSaved: user.chapter, verseSaved: user.verse, userName: "welcome " + user.name})
           }
         });
 
