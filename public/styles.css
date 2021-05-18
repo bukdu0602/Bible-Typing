@@ -1,6 +1,6 @@
 body {
   background-color: #e3fdfd !important;
-  font-family: 'Roboto Condensed', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
   color: #393e46 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -62,4 +62,8 @@ body {
 
 .hideAndOpen {
   background-color: #cbf1f5;
+}
+
+.speedBoard {
+  border-style: groove;
 }

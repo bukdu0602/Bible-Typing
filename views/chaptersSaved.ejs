@@ -1,7 +1,6 @@
 <%- include("header"); -%>
 
 <h1 class="removeLogin" onclick="removeLogSign()" style="display:none;"> <%=userName%> </h1>
-<h1>Books</h1>
 <p>Thank you for signing in. Please click <strong>button</strong> below to start from your last saved point.</p>
 <button type="button" onclick="<%=chaptersSaved%>(<%=verseSaved%>)" name="button">Last Saved Point</button>
 <br><br>
@@ -98,17 +97,17 @@
     <button class="saving btn btn-outline-dark btn-lg" type="submit" name="chapterName" value="" onclick="save()">Click to save your progress</button>
   </form>
 <br>
-  <label class="switch">
-    <input type="checkbox"> uncheck to disable your speed.
-    <span class="slider round"></span>
-  </label>
 
-  <div class="">
+
+<label class="switch">
+  <input type="checkbox" checked> Click here to disable your speed.
+  <span class="slider round"></span>
+</label>
+<div class="speedBoard">
     <h1>Your Type Speed is: <span class="typeSpeed"></span> <span>Per minute</span> </h1>
     <h1>Your Average Speed is: <span class="avgSpeed"></span> </h1>
-  </div>
-
-  <br><br><br><br><br><br><br><br><br>
+</div>
+<br><br><br><br><br><br><br><br><br>
 </div>
 
 </div>
