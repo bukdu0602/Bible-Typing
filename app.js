@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -5,6 +6,7 @@ const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const alert = require("alert");
 
 const app = express();
 
@@ -15,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret: "DlashgusDlashgus1011",
+  secret: process.env.SECRET_CODE,
   resave: false,
   saveUninitialized: false
 }));
@@ -64,6 +66,7 @@ app.get("/", (req, res) => {
         console.log(err)
       } else {
         // res.render("header", {aaa: "", bbb: ""})
+        console.log(user.name)
         res.render("index", {userName: "welcome " + user.name})
       }
     });
@@ -155,22 +158,27 @@ app.post("/signup", (req, res) => {
       console.log(err);
       res.redirect("/signup");
     } else {
-      passport.authenticate("local")(req, res, function() {
-        User.updateOne({username: req.body.username}, {name: req.body.name}, function(err){
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("successfully name")
-          }
-        })
-        res.render("chaptersSaved", {chaptersSaved: null, verseSaved: null });
+      User.updateOne({username: req.body.username}, {name: req.body.name}, function(err){
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("successfully name")
+        }
       });
+      passport.authenticate("local")(req, res, function() {
+      res.render("loginAgain")
+  });
     }
   });
 } else {
   res.send("password does not match")
 }
 });
+
+app.post("/loginAgain", (req, res) => {
+  req.logout();
+  res.redirect("/login");
+})
 
 
 app.listen(3000, () => {
