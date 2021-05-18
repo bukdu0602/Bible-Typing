@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret: process.env.SECRET_CODE,
+  secret: "secretsecretCode840602",
   resave: false,
   saveUninitialized: false
 }));
@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb+srv://Ryan-Lim:' + process.env.MONGOPASSWORD + '@daily-journal.iq88u.mongodb.net/userDB', {
+mongoose.connect('mongodb+srv://Ryan-Lim:Dlashgus1011@daily-journal.iq88u.mongodb.net/userDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
