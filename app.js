@@ -9,7 +9,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const alert = require("alert");
 
 const app = express();
-
+// ah shit it is not working
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
