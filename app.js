@@ -26,7 +26,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb+srv://Ryan-Lim:' + process.env.MONGO_PASSWORD + '@daily-journal.iq88u.mongodb.net/userDB', {
+mongoose.connect('mongodb+srv://Ryan-Lim:Tbibleapp840602@daily-journal.iq88u.mongodb.net/userDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
