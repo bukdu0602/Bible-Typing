@@ -85,19 +85,18 @@
   <p> <span class="bb original3"></span> </p>
   <div class="input-group">
     <span class="input-group-text guide">Type:</span>
-    <textarea id="qwe1" class="form-control bibleTyping" onkeyup="valuePass()" aria-label="With textarea" rows="4" cols="50"></textarea>
+    <textarea style="font-size: 20pt" id="qwe1" class="form-control bibleTyping" onkeyup="valuePass()" aria-label="With textarea" rows="4" cols="50"></textarea>
   </div>
-
+<br>
 <div class="">
-  <button class="btn btn-outline-dark btn-lg" onclick="raiseValue()" type="text" name="button">Next Chapter</button>
+  <button class="btn btn-outline-dark btn-lg" onclick="raiseValue()" type="text" name="button">Next Verse</button>
 </div>
+<br>
 <form class="" action="/" method="post">
     <input class="savingInput" type="hidden" name="verseNumber" value="1234">
     <button class="saving btn btn-outline-dark btn-lg" type="submit" name="chapterName" value="" onclick="save()">Click to save your progress</button>
   </form>
 <br>
-
-
 <label class="switch">
   <input type="checkbox" value="remove" onclick="checkbox()"> Click here to disable your speed.
   <span class="slider round"></span>
@@ -106,11 +105,11 @@
     <h1>Your Type Speed is: <span class="typeSpeed"></span> <span>Per minute</span> </h1>
     <h1>Your Average Speed is: <span class="avgSpeed"></span> </h1>
 </div>
-<br><br><br><br><br><br><br><br><br>
 </div>
 
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <script src="index.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-</body>
 
-</html>
+
+<%- include("footer"); -%>
