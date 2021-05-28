@@ -58,7 +58,7 @@ passport.deserializeUser(function(id, done) {
 
 let userEmail = ""
 
-// Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get
+// Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get Get
 
 app.get("/", (req, res) => {
   if (req.isAuthenticated()) {
